@@ -39,7 +39,15 @@ Create a type alias for a complex data type, such as a tuple with specific eleme
 Create a simple generic function that operates on arrays of any element type. Test it with arrays of integers, floats, and strings.
 
 ## FUNCTIONS
-In Julia functions can have multiple methods and employs concept of multiple dispatch.New methods can be added to an existing function.
+In Julia functions can have multiple methods and employs concept of multiple dispatch.
+
+**Multiple dispatch** : 
+Refers to the system which Julia uses to select the appropriate method for a given function call.
+
+New methods can be added to an existing function.
+
+**Creating functions**
+
 Functions can be created in two ways:
 
 * In one line
@@ -69,16 +77,46 @@ function fn(x::Integer,y=2,z=1)
 end
 
 ```
+* Using type assertions in a function
+When you explicitly define the data type of your arguments.
+Julia will display an error message when you a different datatype is provided
+
+**Example**
+
+```
+function add(x::Int64,y::Int64)
+            
+             return(2x+y)
+
+ end
+
+```
+* Calling the functions with float arguments
+
+add(3.0,2.1)
+
+```
+julia> add(3.0,2.1)
+
+ERROR: MethodError: no method matching add(::Float64, ::Float64)
+Stacktrace:
+ [1] top-level scope
+   @ REPL[3]:1
+
+```
+
 ### Methods 
 Related functions can be grouped together to form a module .The syntax of defining a module is as follows;
 
 ```
-module module1
+module module_name
     <Include your functions here>
 
 end
 ```
-Example: A module that contains a function that takes user names and prints out greetings.
+**Example** :
+
+A module that contains a function that takes user names and prints out greetings.
 ```
 module greetings
     export fn
