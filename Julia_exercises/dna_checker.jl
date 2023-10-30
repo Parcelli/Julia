@@ -1,5 +1,5 @@
 #A function to check if a given sequence is a valid dna sequence and finds its reverse complement
-function dna_checker(dna)
+function dna_checker(dna:String)
     for nuc in dna
          valid_dna=['A','G','T','C']
          if !(nuc in valid_dna)
